@@ -4,8 +4,6 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.3"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 2.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
@@ -52,8 +50,8 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  # Use SQLite3 as the database for Active Record in development and test
-  gem "sqlite3"
+  # Use sqlite3 as the database for Active Record
+  gem "sqlite3", ">= 2.1"
 end
 
 group :development do
