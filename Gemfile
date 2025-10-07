@@ -63,6 +63,9 @@ group :development, :test do
   # Slim linter
   gem 'slim_lint', require: false
 
+  # Use Slim for templates
+  gem 'slim-rails'
+
   # Rubocop
   gem 'rubocop-rails', require: false
 end
@@ -82,4 +85,4 @@ group :production do
   gem 'pg'
 end
 
-gem "devise", "~> 4.9"
+gem 'devise', '~> 4.9'
