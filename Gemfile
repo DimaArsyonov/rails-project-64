@@ -66,6 +66,9 @@ group :development, :test do
   # Use Slim for templates
   gem 'slim-rails'
 
+  # Easy form builder for Rails
+  gem 'simple_form'
+
   # Rubocop
   gem 'rubocop-rails', require: false
 end

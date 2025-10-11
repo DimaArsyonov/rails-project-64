@@ -30,18 +30,13 @@ html lang="en"
 
     main.flex-shrink-0
       .container.mt-5
-        h1.mb-4.text-center Latest Posts
-        .row
-          - @posts.each do |post|
-            .col-md-12
-              .card.mb3
-                .card-body
-                  h5.card-title = post.title
-                  p.card-text.mb-2 = truncate(post.body, length: 100)
-                  p.card-subtitle.text-muted.mb-2
-                    | Category: #{post.category.name} | Author: #{post.creator.email}
-                  = link_to "Read more", post_path(post), class: "btn btn-primary"
-              br
+          h1 = @post.title
+          p.lead = @post.body
+          p
+            | Category: 
+            = @post.category.name
+          = link_to "Back to main page", root_path, class: "nav-link text-decoration-underline"
+
     footer.footer.mt-auto.py-3.bg-light
       .container
         span.text-muted © #{Time.current.year} Collective Blog. All rights reserved.
