@@ -47,6 +47,9 @@ gem 'sentry-ruby'
 # Easy form builder for Rails
 gem 'simple_form'
 
+# Tree structure for comments
+gem 'ancestry'
+
 # minitest-power_assert
 gem 'minitest-power_assert'
 

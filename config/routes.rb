@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'home/index'
   root 'home#index'
-  resources :posts
+  resources :posts do
+    resources :comments, controller: 'comments', only: %i[create destroy]
+  end
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
