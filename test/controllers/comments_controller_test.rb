@@ -16,11 +16,9 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create comment' do
-    puts @post.comments.count
     assert_difference('@post.comments.count') do
       post post_comments_url(@post), params: { post_comment: { content: 'This is a new comment.' } }
     end
-    puts @post.comments.reload.count
     assert_redirected_to post_path(@post)
   end
 
