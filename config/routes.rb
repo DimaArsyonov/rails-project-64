@@ -1,7 +1,12 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   get 'home/index'
   root 'home#index'
   resources :posts do
+    resources :likes, only: %i[create destroy]
     resources :comments, only: %i[create new destroy] do
       member do
         get :reply
