@@ -13,15 +13,22 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to post_path(@post, anchor: "comment-#{@comment.id}"), notice: t('.success')
+      redirect_to post_path(@post), notice: t('.success')
     else
       redirect_to post_path(@post), alert: t('.failure')
     end
   end
 
+  def reply
+    @post = Post.find(params[:post_id])
+    parent_comment = @post.comments.find(params[:id])
+    @comment = @post.comments.build(parent_id: parent_comment.id)
+    render :reply
+  end
+
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :parent_id)
+    params.require(:post_comment).permit(:content, :parent_id)
   end
 end

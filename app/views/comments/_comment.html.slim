@@ -1,0 +1,13 @@
+li
+  p
+    strong = comment.user.email
+    | :
+    = comment.content
+    br
+    turbo-frame id="reply_form_#{comment.id}"
+      = button_to 'Reply', reply_post_comment_path(post, comment), method: :get, data: { turbo_frame: "reply_form_#{comment.id}" }, class: "btn btn-dark btn-sm mt-1", onclick: "this.style.display='none';"
+  / Рекурсивно рендерим дочерние комментарии
+  - if children.present?
+    ul
+      - children.each do |child, subchildren|
+        = render partial: "comments/comment", locals: { comment: child, children: subchildren, post: post }
