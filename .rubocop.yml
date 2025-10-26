@@ -36,7 +36,7 @@ Metrics/PerceivedComplexity:
 Rails:
   Enabled: true
 
-require:
+plugins:
   - rubocop-performance
   - rubocop-rails
 
