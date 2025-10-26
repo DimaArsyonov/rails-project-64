@@ -37,9 +37,9 @@ html lang="en"
             = @post.category.name
           p
             | Likes: 
-            = @post.post_likes.count
+            = @post.likes.count
           - if user_signed_in?
-            - if @post.post_likes.exists?(user: current_user)
+            - if @post.likes.exists?(user: current_user)
               = button_to 'Unlike', post_like_path(@post), method: :delete, class: 'btn btn-secondary'
             - else
               = button_to 'Like', post_likes_path(@post), method: :post, class: 'btn btn-primary'

@@ -5,7 +5,7 @@ class LikesController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @like ||= @post.post_likes.build(user: current_user)
+    @like ||= @post.likes.build(user: current_user)
 
     if @like.persisted?
       redirect_to post_path(@post), notice: t('.already_liked')
@@ -18,7 +18,7 @@ class LikesController < ApplicationController
 
   def destroy
     @post = Post.find(params[:post_id])
-    @like = @post.post_likes.find_by(user: current_user)
+    @like = @post.likes.find_by(user: current_user)
 
     if @like&.destroy
       redirect_to post_path(@post), notice: t('.unliked')
