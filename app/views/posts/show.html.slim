@@ -12,9 +12,9 @@ html lang="en"
         .container-fluid
           = link_to 'Collective Blog', root_path, class: 'navbar-brand'
           button.navbar-toggler 
-            type="button" 
+            type = 'button'
             data-bs-toggle = 'collapse'
-            data-bs-target = "#navbarCollapse"
+            data-bs-target = '#navbarCollapse'
             aria-controls = 'navbarCollapse'
             aria-expanded = 'false'
             aria-label = 'Toggle navigation'
@@ -39,10 +39,10 @@ html lang="en"
           h1 = @post.title
           p.lead = @post.body
           p
-            | Category: 
+            | Category:
             = @post.category.name
           p
-            | Likes: 
+            | Likes:
             = @post.likes.count
           - if user_signed_in?
             - if @post.likes.exists?(user: current_user)
@@ -55,7 +55,7 @@ html lang="en"
             - if user_signed_in?
               = simple_form_for @comment, url: post_comments_path(@post) do |f|
                 = f.input :content, label: false
-                = f.button :submit, 'Add comment', class: "btn btn-dark mt-3"
+                = f.button :submit, 'Add comment', class: 'btn btn-dark mt-3'
             - else
               p Please log in to comment posts
             br
@@ -64,10 +64,10 @@ html lang="en"
           - if @comments.present?
             ul
               - @comments.each do |comment, children|
-                = render partial: "comments/comment", locals: { comment: comment, children: children, post: @post }
+                = render partial: 'comments/comment', locals: { comment: comment, children: children, post: @post }
           - else
             p.text-muted No comments yet.
-          = link_to "Back to main page", root_path, class: "nav-link text-decoration-underline"
+          = link_to 'Back to main page', root_path, class: 'nav-link text-decoration-underline'
 
     footer.footer.mt-auto.py-3.bg-light
       .container
