@@ -1,5 +1,5 @@
 turbo-frame id="reply_form_#{@comment.parent_id}"
-  = simple_form_for @comment, data: { turbo: false } do |f| 
-    = f.hidden_field :parent_id, value: @comment.parent_id 
-    = f.input :content, label: false 
-    = f.button :submit, 'Reply', class: "btn btn-dark btn-sm mt-1"
+  = simple_form_for @comment, data: { turbo: false } do |f|
+    = f.hidden_field :parent_id, value: @comment.parent_id
+    = f.input :content, label: false
+    = f.button :submit, 'Reply', class: 'btn btn-dark btn-sm mt-1'
