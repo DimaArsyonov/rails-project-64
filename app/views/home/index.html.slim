@@ -11,13 +11,13 @@ html lang="en"
       nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
         .container-fluid
           = link_to 'Collective Blog', root_path, class: 'navbar-brand'
-          button.navbar-toggler 
-            type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#navbarCollapse" 
-            aria-controls="navbarCollapse" 
-            aria-expanded="false" 
-            aria-label="Toggle navigation"
+          button.navbar-toggler
+            type = 'button'
+            data-bs-toggle = 'collapse'
+            data-bs-target = "#navbarCollapse"
+            aria-controls = 'navbarCollapse'
+            aria-expanded = 'false' 
+            aria-label = 'Toggle navigation'
             span.navbar-toggler-icon
           #navbarCollapse.collapse.navbar-collapse
             ul.navbar-nav.ms-auto.mb-2.mb-md-0
@@ -46,7 +46,7 @@ html lang="en"
                   p.card-text.mb-2 = truncate(post.body, length: 100)
                   p.card-subtitle.text-muted.mb-2
                     | Category: #{post.category.name} | Author: #{post.creator.email}
-                  = link_to "Read more", post_path(post), class: "btn btn-primary"
+                  = link_to 'Read more', post_path(post), class: 'btn btn-primary'
               br
     footer.footer.mt-auto.py-3.bg-light
       .container
