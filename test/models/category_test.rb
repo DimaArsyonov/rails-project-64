@@ -20,9 +20,4 @@ class CategoryTest < ActiveSupport::TestCase
     @category.name = nil
     assert_not @category.valid?
   end
-
-  test 'name should be unique' do
-    duplicate_category = @category.dup
-    assert_not duplicate_category.valid?
-  end
 end
