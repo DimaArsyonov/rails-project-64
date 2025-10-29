@@ -55,6 +55,9 @@ gem 'ancestry'
 # minitest-power_assert
 gem 'minitest-power_assert'
 
+# Use Slim for templates
+gem 'slim-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
@@ -70,9 +73,6 @@ group :development, :test do
 
   # Slim linter
   gem 'slim_lint', require: false
-
-  # Use Slim for templates
-  gem 'slim-rails'
 
   # Rubocop
   gem 'rubocop-rails', require: false
