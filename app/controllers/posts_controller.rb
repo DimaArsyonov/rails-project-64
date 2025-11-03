@@ -20,6 +20,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post), notice: t('.success')
     else
+      puts "❌ Post not saved: #{@post.errors.full_messages.join(', ')}"
       render :new, status: :unprocessable_entity
     end
   end
