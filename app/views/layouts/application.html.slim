@@ -19,6 +19,6 @@ html
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
     - if defined?(Sentry) && Sentry.respond_to?(:get_trace_propagation_meta)
       - trace_meta = Sentry.get_trace_propagation_meta
-      = trace_meta.html_safe if trace_meta.present?
+      = trace_meta.html_safe if trace_meta.present? # rubocop:disable Rails/OutputSafety
   body
     = yield
