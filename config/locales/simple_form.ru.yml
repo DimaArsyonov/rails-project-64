@@ -1,0 +1,23 @@
+ru:
+  simple_form:
+    labels:
+      user:
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        current_password: 'Текущий пароль'
+        remember_me: 'Запомнить меня'
+      post:
+        title: 'Заголовок'
+        body: 'Содержание'
+        category: 'Категория'
+    hints:
+      user:
+        password: 'Минимум 6 знаков'
+        change_password: 'Оставьте пустым, если не хотите менять пароль'
+        current_password: 'Введите текущий пароль для подтверждения изменений'
+      post:
+        title: '5-255 символов'
+        body: 'От 200 до 4000 символов'
+        select_category: 'Выберите категорию'
+    error_notification:
+      default_message: "Пожалуйста, проверьте проблемы ниже:"

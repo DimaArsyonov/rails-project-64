@@ -3,14 +3,13 @@ html lang="en"
   head
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1"
-    title Collective blog
     = csrf_meta_tags
     = csp_meta_tag
   body.d-flex.flex-column.h-100
     header
       nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
         .container-fluid
-          = link_to 'Collective Blog', root_path, class: 'navbar-brand'
+          = link_to t(:blog), root_path, class: 'navbar-brand'
           button.navbar-toggler
             type = 'button'
             data-bs-toggle = 'collapse'
@@ -23,52 +22,57 @@ html lang="en"
             ul.navbar-nav.ms-auto.mb-2.mb-md-0
               - if user_signed_in?
                 li.nav-item
-                  = link_to 'New post', new_post_path, class: 'nav-link'
+                  = link_to t(:profile), edit_user_registration_path, class: 'nav-link'
                 li.nav-item
-                  = link_to 'Profile', edit_user_registration_path, class: 'nav-link'
+                  = link_to t(:new_post), new_post_path, class: 'nav-link'
                 li.nav-item
-                  = link_to 'Logout', destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link'
+                  = link_to t(:log_out), destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link'
               - else
                 li.nav-item
-                  = link_to 'Login', new_user_session_path, class: 'nav-link'
+                  = link_to t(:log_in), new_user_session_path, class: 'nav-link'
                 li.nav-item
-                  = link_to 'Sign Up', new_user_registration_path, class: 'nav-link'
+                  = link_to t(:sign_up), new_user_registration_path, class: 'nav-link'
 
     main.flex-shrink-0
       .container.mt-5
+          - if flash[:post_notice]
+            .alert.alert-success = flash[:post_notice]
           h1 = @post.title
           p.lead = @post.body
           p
-            | Category:
-            = @post.category.name
+            | #{t(:category)}: #{t("categories.#{@post.category.name.downcase}")}
           p
-            | Likes:
+            | #{t(:likes)}:
             = @post.likes_count
           - if user_signed_in?
             - if @post.likes.exists?(user: current_user)
-              = button_to 'Unlike', post_like_path(@post), method: :delete, class: 'btn btn-secondary'
+              = button_to t(:unlike), post_like_path(@post), method: :delete, class: 'btn btn-secondary'
             - else
-              = button_to 'Like', post_likes_path(@post), method: :post, class: 'btn btn-primary'
+              = button_to t(:like), post_likes_path(@post), method: :post, class: 'btn btn-primary'
           - else
-            p Please log in to like posts
+            p #{t(:cannot_like)}
           .lead.mt-3
+            - if flash[:comment_notice]
+              .alert.alert-success = flash[:comment_notice]
+            - if flash[:comment_alert]
+              .alert.alert-danger = flash[:comment_alert]
             - if user_signed_in?
               = simple_form_for @comment, url: post_comments_path(@post) do |f|
                 = f.input :content, label: false
-                = f.button :submit, 'Add comment', class: 'btn btn-dark mt-3'
+                = f.button :submit, t(:add_comment), class: 'btn btn-dark mt-3'
             - else
-              p Please log in to comment posts
+              p #{t(:cannot_comment)}
             br
             br
-          | Comments:
+          | #{t(:comments)}:
           - if @comments.present?
             ul
               - @comments.each do |comment, children|
                 = render partial: 'comments/comment', locals: { comment: comment, children: children, post: @post }
           - else
-            p.text-muted No comments yet.
-          = link_to 'Back to main page', root_path, class: 'nav-link text-decoration-underline'
+            p.text-muted #{t(:no_comments)}
+          = link_to t(:back_to_main), root_path, class: 'btn btn-secondary d-inline-block'
 
     footer.footer.mt-auto.py-3.bg-light
       .container
-        span.text-muted © #{Time.current.year} Collective Blog. All rights reserved.
+        span.text-muted © #{Time.current.year} #{t(:blog)}. #{t(:all_rights)}

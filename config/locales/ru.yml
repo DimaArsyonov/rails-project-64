@@ -1,0 +1,62 @@
+ru:
+  hello: 'Привет мир'
+  sign_up: 'Регистрация'
+  log_in: 'Войти'
+  blog: 'Коллективный блог'
+  new_post: 'Новый пост'
+  posts: 'Последние посты'
+  profile: 'Профиль'
+  log_out: 'Выйти'
+  category: 'Категория'
+  author: 'Автор'
+  read_more: 'Читать далее'
+  all_rights: 'Все права защищены.'
+  update: 'Обновить'
+  back_to_main: 'На главную страницу'
+  create_post: 'Создать пост'
+  likes: 'Лайки'
+  unlike: 'Не нравится'
+  like: 'Нравится'
+  add_comment: 'Добавить комментарий'
+  cannot_like: 'Пожалуйста, войдите в аккаунт, чтобы ставить лайки'
+  cannot_comment: 'Пожалуйста, войдите в аккаунт, чтобы комментировать посты'
+  comments: 'Комментарии'
+  no_comments: 'Пока нет комментариев.'
+  reply: 'Ответить'
+  comment_success: 'Комментарий успешно создан.'
+  comment_failure: 'Не удалось создать комментарий.'
+  post_success: 'Пост успешно создан.'
+  post_failure: 'Не удалось создать пост.'
+  errors:
+    messages:
+      blank: 'не может быть пустым'
+      too_short: 'не содержит достаточного количества символов (минимум %{count})'
+      too_long: 'содержит слишком много символов (максимум %{count})'
+      required: '- обязательное поле'
+      confirmation: 'необходимо для успешной смены пароля'
+      invalid: 'указан неверно'
+  activerecord:
+    models:
+      post: 'Пост'
+      user: 'Пользователь'
+    attributes:
+      post:
+        title: 'Заголовок'
+        body: 'Содержание'
+        category: 'Категория'
+      user:
+        current_password: 'Текущий пароль'
+        password_confirmation: 'Подтверждение пароля'
+        password: 'Пароль'
+  support:
+    array:
+      words_connector: ', '
+      two_words_connector: ' и '
+      last_word_connector: ' и '
+  categories:
+    technology: 'Технологии'
+    health: 'Здоровье'
+    science: 'Наука'
+    travel: 'Путешествия'
+    food: 'Еда'
+    education: 'Образование'

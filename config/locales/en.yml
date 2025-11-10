@@ -1,31 +1,62 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  hello: 'Hello world'
+  log_in: 'Log in'
+  sign_up: 'Sign Up'
+  blog: 'Collective blog'
+  new_post: 'New Post'
+  posts: 'Latest Posts'
+  profile: 'Profile'
+  log_out: 'Log out'
+  category: 'Category'
+  author: 'Author'
+  read_more: 'Read more'
+  all_rights: 'All rights reserved.'
+  update: 'Update'
+  back_to_main: 'To main page'
+  create_post: 'Create Post'
+  likes: 'Likes'
+  unlike: 'Unlike'
+  like: 'Like'
+  add_comment: 'Add Comment'
+  cannot_like: 'Please log in to like posts'
+  cannot_comment: 'Please log in to comment posts'
+  comments: 'Comments'
+  no_comments: 'No comments yet.'
+  reply: 'Reply'
+  comment_success: 'Comment was successfully created.'
+  comment_failure: 'Failed to create comment.'
+  post_success: 'Post was successfully created.'
+  post_failure: 'Failed to create post.'
+  errors:
+    messages:
+      blank: "can't be blank"
+      too_short: 'is too short (minimum %{count})'
+      too_long: 'is too long (maximum %{count})'
+      required: '- required field'
+      confirmation: 'is required for successful password change'
+      invalid: 'is invalid'
+  activerecord:
+    models:
+      post: 'Post'
+      user: 'User'
+    attributes:
+      post:
+        title: 'Title'
+        body: 'Body'
+        category: 'Category'
+      user:
+        current_password: 'Current password'
+        password_confirmation: 'Password confirmation'
+        password: 'Password'
+  support:
+    array:
+      words_connector: ', '
+      two_words_connector: ' and '
+      last_word_connector: ' and '
+  categories:
+    technology: 'Technology'
+    health: 'Health'
+    science: 'Science'
+    travel: 'Travel'
+    food: 'Food'
+    education: 'Education'

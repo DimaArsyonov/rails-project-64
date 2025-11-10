@@ -6,7 +6,7 @@ li
     br
     - if user_signed_in?
       turbo-frame id="reply_form_#{comment.id}"
-        = button_to 'Reply',
+        = button_to t(:reply),
           reply_post_comment_path(post, comment), method: :get,
           data: { turbo_frame: "reply_form_#{comment.id}" },
           class: 'btn btn-dark btn-sm mt-1',

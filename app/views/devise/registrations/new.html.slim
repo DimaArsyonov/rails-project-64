@@ -1,11 +1,4 @@
-doctype html
-html lang="en"
-  head
-    meta charset="utf-8"
-    meta name="viewport" content="width=device-width, initial-scale=1"
-    = csrf_meta_tags
-    = csp_meta_tag
-  body.d-flex.flex-column.h-100
+body.d-flex.flex-column.h-100
     header
       nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
         .container-fluid
@@ -32,21 +25,17 @@ html lang="en"
                   = link_to t(:log_in), new_user_session_path, class: 'nav-link'
                 li.nav-item
                   = link_to t(:sign_up), new_user_registration_path, class: 'nav-link'
-    br
-    main.flex-shrink-0
-      .container.mt-5
-        h1.mb-4.text-center = t(:posts)
-        .row
-          - @posts.each do |post|
-            .col-md-12
-              .card.mb3
-                .card-body
-                  h5.card-title = post.title
-                  p.card-text.mb-2 = truncate(post.body, length: 100)
-                  p.card-subtitle.text-muted.mb-2
-                    | #{t(:category)}: #{t("categories.#{post.category.name.downcase}")} | #{t(:author)}: #{post.creator.email}
-                  = link_to t(:read_more), post_path(post), class: 'btn btn-primary'
-              br
-    footer.footer.mt-auto.py-3.bg-light
-      .container
-        span.text-muted © #{Time.current.year} #{t(:blog)}. #{t(:all_rights)}
+br
+main.flex-shrink-0
+  .container.mt-5
+    h2
+      = t(:sign_up)
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }
+        = f.input :password, required: true, hint: (t('simple_form.hints.user.password') if @minimum_password_length), input_html: { autocomplete: "new-password" }
+        = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }
+      .form-actions
+        = f.button :submit, t(:sign_up), class: 'btn btn-primary'
+    = render "devise/shared/links"

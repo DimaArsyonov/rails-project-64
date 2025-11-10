@@ -10,6 +10,24 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    labels:
+      user:
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        remember_me: 'Remember me'
+      post:
+        title: 'Title'
+        body: 'Content'
+        category: 'Category'
+    hints:
+      user:
+        password: 'Minimum 6 characters'
+        change_password: 'Leave blank if you do not want to change the password'
+        current_password: 'We need your current password to confirm your changes'
+      post:
+        title: '5-255 characters'
+        body: '200 to 4000 characters'
+        select_category: 'Select category'
     # Examples
     # labels:
     #   defaults:

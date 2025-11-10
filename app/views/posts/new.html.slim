@@ -3,14 +3,13 @@ html lang="en"
   head
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1"
-    title Collective blog
     = csrf_meta_tags
     = csp_meta_tag
   body.d-flex.flex-column.h-100
     header
       nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
         .container-fluid
-          = link_to 'Collective Blog', root_path, class: 'navbar-brand'
+          = link_to t(:blog), root_path, class: 'navbar-brand'
           button.navbar-toggler
             type = 'button'
             data-bs-toggle = 'collapse'
@@ -23,30 +22,32 @@ html lang="en"
             ul.navbar-nav.ms-auto.mb-2.mb-md-0
               - if user_signed_in?
                 li.nav-item
-                  = link_to 'New post', new_post_path, class: 'nav-link'
+                  = link_to t(:profile), edit_user_registration_path, class: 'nav-link'
                 li.nav-item
-                  = link_to 'Profile', edit_user_registration_path, class: 'nav-link'
+                  = link_to t(:new_post), new_post_path, class: 'nav-link'
                 li.nav-item
-                  = link_to 'Logout', destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link'
+                  = link_to t(:log_out), destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link'
               - else
                 li.nav-item
-                  = link_to 'Login', new_user_session_path, class: 'nav-link'
+                  = link_to t(:log_in), new_user_session_path, class: 'nav-link'
                 li.nav-item
-                  = link_to 'Sign Up', new_user_registration_path, class: 'nav-link'
+                  = link_to t(:sign_up), new_user_registration_path, class: 'nav-link'
 
     main.flex-shrink-0
       .container.mt-5
-          h1 New post
+          h1 = t(:new_post)
+          - if alert
+            .alert.alert-info = alert
+          - if notice
+            .alert.alert-success = notice
           = simple_form_for @post do |f|
-            = f.input :title
-            = f.hint '5-255 symbols'
+            = f.input :title, hint: t('simple_form.hints.post.title')
             br
-            = f.input :body
-            = f.hint '200-4000 symbols'
+            = f.input :body, hint: t('simple_form.hints.post.body')
             br
-            = f.association :category, collection: Category.all, prompt: 'Select category'
-            = f.button :submit, class: 'btn btn-dark mt-3'
+            = f.association :category, collection: Category.all.map { |c| [t("categories.#{c.name.downcase}"), c.id] }, prompt: t('simple_form.hints.post.select_category')
+            = f.button :submit, t('create_post'), class: 'btn btn-dark mt-3'
 
     footer.footer.mt-auto.py-3.bg-light
       .container
-        span.text-muted © #{Time.current.year} Collective Blog. All rights reserved.
+        span.text-muted © #{Time.current.year} #{t(:blog)}. #{t(:all_rights)}

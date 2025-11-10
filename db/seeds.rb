@@ -1,17 +1,11 @@
 # frozen_string_literal: true
 
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-Category.create(name: 'Technology')
-Category.create(name: 'Health')
-Category.create(name: 'Science')
-Category.create(name: 'Travel')
-Category.create(name: 'Education')
-Category.create(name: 'Food')
+Rails.logger.debug 'Seeding started'
+
+require_relative 'seeds/categories'
+require_relative 'seeds/users'
+require_relative 'seeds/posts'
+require_relative 'seeds/post_comments'
+require_relative 'seeds/post_likes'
+
+Rails.logger.debug 'Seeding finished'
