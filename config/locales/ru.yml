@@ -48,6 +48,12 @@ ru:
         current_password: 'Текущий пароль'
         password_confirmation: 'Подтверждение пароля'
         password: 'Пароль'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'уже занят'
   support:
     array:
       words_connector: ', '

@@ -3,3 +3,7 @@ ru:
     failure:
       invalid: 'Неверный %{authentication_keys} или пароль'
       not_found_in_database: 'Неверный %{authentication_keys} или пароль'
+    sessions:
+      signed_in: 'Успешный вход в систему'
+      signed_out: 'Успешный выход из системы'
+      already_signed_out: 'Вы уже вышли из системы'

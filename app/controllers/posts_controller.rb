@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.includes(:category, :creator).order(created_at: :desc)
   end
 
   def show

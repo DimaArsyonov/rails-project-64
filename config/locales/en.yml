@@ -35,6 +35,7 @@ en:
       required: '- required field'
       confirmation: 'is required for successful password change'
       invalid: 'is invalid'
+      taken: 'already exists, please try logging in with it'
   activerecord:
     models:
       post: 'Post'
@@ -48,6 +49,12 @@ en:
         current_password: 'Current password'
         password_confirmation: 'Password confirmation'
         password: 'Password'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'is already taken'
   support:
     array:
       words_connector: ', '

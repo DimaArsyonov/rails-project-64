@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build
@@ -19,16 +20,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def reply
-    @post = Post.find(params[:post_id])
-    parent_comment = @post.comments.find(params[:id])
-    @comment = @post.comments.build(parent_id: parent_comment.id)
-    render :reply
-  end
-
   private
 
   def comment_params
-    params.expect(post_comment: %i[content parent_id])
+    params.require(:post_comment).permit(:content, :parent_id)
   end
 end

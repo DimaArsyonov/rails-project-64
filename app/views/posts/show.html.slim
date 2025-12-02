@@ -41,16 +41,15 @@ html lang="en"
           p.lead = @post.body
           p
             | #{t(:category)}: #{t("categories.#{@post.category.name.downcase}")}
-          p
-            | #{t(:likes)}:
-            = @post.likes_count
-          - if user_signed_in?
-            - if @post.likes.exists?(user: current_user)
-              = button_to t(:unlike), post_like_path(@post), method: :delete, class: 'btn btn-secondary'
+          .d-flex.align-items-center
+            span.me-2= @post.likes_count
+            - if user_signed_in?
+              - if @post.likes.exists?(user: current_user)
+                = button_to "\u2665", post_like_path(@post), method: :delete, class: 'heart-button', style: 'border:1px solid white; background-color:white; font-size:28px; cursor:pointer; padding:0 4px;'
+              - else
+                = button_to "\u2661", post_likes_path(@post), method: :post, class: 'heart-button', style: 'border:1px solid white; background-color:white; font-size:28px; cursor:pointer; padding:0 4px;'
             - else
-              = button_to t(:like), post_likes_path(@post), method: :post, class: 'btn btn-primary'
-          - else
-            p #{t(:cannot_like)}
+              p #{t(:cannot_like)}
           .lead.mt-3
             - if flash[:comment_notice]
               .alert.alert-success = flash[:comment_notice]

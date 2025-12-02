@@ -7,11 +7,7 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :posts do
     resources :likes, only: %i[create destroy]
-    resources :comments, only: %i[create new destroy] do
-      member do
-        get :reply
-      end
-    end
+    resources :comments, only: %i[create new destroy]
   end
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
