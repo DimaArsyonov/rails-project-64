@@ -23,7 +23,13 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get reply' do
-    get reply_post_comment_url(@post, @comment)
+    parent_comment = @comment
+    post post_comments_url(@post), params: {
+      comment: {
+        body: 'Reply',
+        parent_id: parent_comment.id
+      }
+    }
     assert_response :success
   end
 end

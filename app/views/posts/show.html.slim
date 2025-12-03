@@ -42,7 +42,7 @@ html lang="en"
           p
             | #{t(:category)}: #{t("categories.#{@post.category.name.downcase}")}
           .d-flex.align-items-center
-            span.me-2= @post.likes_count
+            span.me-2 = @post.likes_count
             - if user_signed_in?
               - if @post.likes.exists?(user: current_user)
                 = button_to "\u2665", post_like_path(@post), method: :delete, class: 'heart-button', style: 'border:1px solid white; background-color:white; font-size:28px; cursor:pointer; padding:0 4px;'
