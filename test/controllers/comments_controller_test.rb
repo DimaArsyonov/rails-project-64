@@ -24,9 +24,9 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get reply' do
     parent_comment = @comment
-    assert_difference("Comment.count") do
+    assert_difference('PostComment.count') do
       post post_comments_url(@post), params: {
-        comment: {
+        post_comment: {
           body: 'This is a reply.',
           parent_id: parent_comment.id
         }
