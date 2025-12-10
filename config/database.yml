@@ -29,7 +29,7 @@ production:
     adapter: postgresql
     encoding: unicode
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    database: <%= ENV.fetch("DATABASE_NAME") { 'rails_project_64_database_4hsd_caaa' } %>
+    database: <%= ENV.fetch("DATABASE_NAME") { 'rails_project_64_database_4hsd_caaa_58km' } %>
     host: <%= ENV["DATABASE_HOST"] %>
     port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
     username: <%= ENV["DATABASE_USERNAME"] %>
@@ -39,7 +39,7 @@ production:
     adapter: postgresql
     encoding: unicode
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    database: <%= ENV.fetch("DATABASE_NAME") { 'rails_project_64_database_4hsd_caaa' } %>
+    database: <%= ENV.fetch("DATABASE_NAME") { 'rails_project_64_database_4hsd_caaa_58km' } %>
     host: <%= ENV["DATABASE_HOST"] %>
     port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
     username: <%= ENV["DATABASE_USERNAME"] %>
@@ -49,7 +49,7 @@ production:
     adapter: postgresql
     encoding: unicode
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    database: <%= ENV.fetch("DATABASE_NAME") { 'rails_project_64_database_4hsd_caaa' } %>
+    database: <%= ENV.fetch("DATABASE_NAME") { 'rails_project_64_database_4hsd_caaa_58km' } %>
     host: <%= ENV["DATABASE_HOST"] %>
     port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
     username: <%= ENV["DATABASE_USERNAME"] %>
@@ -59,7 +59,7 @@ production:
     adapter: postgresql
     encoding: unicode
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    database: <%= ENV.fetch("DATABASE_NAME") { 'rails_project_64_database_4hsd_caaa' } %>
+    database: <%= ENV.fetch("DATABASE_NAME") { 'rails_project_64_database_4hsd_caaa_58km' } %>
     host: <%= ENV["DATABASE_HOST"] %>
     port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
     username: <%= ENV["DATABASE_USERNAME"] %>
