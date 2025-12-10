@@ -45,10 +45,10 @@ html lang="en"
             span.me-2 = @post.likes_count
             - if user_signed_in?
               - if @post.likes.exists?(user: current_user)
-                = button_to "\u2665", post_like_path(@post), 
+                = button_to "\u2665", post_like_path(@post),
                   method: :delete, class: 'heart-button', style: 'border:1px solid white; background-color:white; font-size:28px; cursor:pointer; padding:0 4px;'
               - else
-                = button_to "\u2661", post_likes_path(@post), 
+                = button_to "\u2661", post_likes_path(@post),
                   method: :post, class: 'heart-button', style: 'border:1px solid white; background-color:white; font-size:28px; cursor:pointer; padding:0 4px;'
             - else
               p #{t(:cannot_like)}
