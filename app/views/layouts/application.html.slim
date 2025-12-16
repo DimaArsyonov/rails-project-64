@@ -22,4 +22,5 @@ html
       - if trace_meta.present?
         trace_meta.html_safe # rubocop:disable Rails/OutputSafety
   body
+    = render 'shared/flash'
     = yield
