@@ -8,12 +8,12 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    get home_index_url
+    get root_path
     assert_response :success
   end
 
   test 'index should display posts' do
-    get home_index_url
+    get root_path
     assert_select 'h5.card-title', text: @post.title
     assert_select 'p.card-text.mb-2', text: @post.body.truncate(100)
   end
