@@ -28,8 +28,6 @@ body.d-flex.flex-column.h-100
 br
 main.flex-shrink-0
   .container.mt-5
-    - if alert
-      .alert.alert-info = alert
     h2
       = t(:log_in)
     = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|

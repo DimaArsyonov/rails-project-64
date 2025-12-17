@@ -6,24 +6,12 @@ class LikesController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @like ||= @post.likes.build(user: current_user)
-
-    if @like.persisted?
-      redirect_to post_path(@post), notice: t('.already_liked')
-    elsif @like.save
-      redirect_to post_path(@post), notice: t('.liked')
-    else
-      redirect_to post_path(@post), alert: t('.failed')
-    end
+    redirect_to @post if @like.save
   end
 
   def destroy
     @post = Post.find(params[:post_id])
     @like = @post.likes.find_by(user: current_user)
-
-    if @like&.destroy
-      redirect_to post_path(@post), notice: t('.unliked')
-    else
-      redirect_to post_path(@post), alert: t('.failed')
-    end
+    redirect_to @post if @like&.destroy
   end
 end

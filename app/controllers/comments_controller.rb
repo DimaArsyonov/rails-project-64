@@ -14,9 +14,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to post_path(@post), flash: { success: t(:comment_success) }
+      redirect_to @post, flash: { success: t(:comment_success) }
     else
-      redirect_to post_path(@post), flash: { alert: t(:comment_failure) }
+      redirect_to @post, flash: { alert: t(:comment_failure) }
     end
   end
 

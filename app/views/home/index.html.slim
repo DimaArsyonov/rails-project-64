@@ -35,10 +35,6 @@ html lang="en"
     br
     main.flex-shrink-0
       .container.mt-5
-        - if alert
-          .alert.alert-info = alert
-        - if notice
-          .alert.alert-success = notice
         h1.mb-4.text-center = t(:posts)
         .row
           - @posts.each do |post|
