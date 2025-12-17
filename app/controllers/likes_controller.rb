@@ -6,7 +6,7 @@ class LikesController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @like ||= @post.likes.build(user: current_user)
-    redirect_to @post if @like.save
+    redirect_to @post if @like&.save
   end
 
   def destroy
