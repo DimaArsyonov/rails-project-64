@@ -432,7 +432,6 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kamal
-  minitest (~> 5.27)
   minitest-power_assert
   pg
   propshaft
