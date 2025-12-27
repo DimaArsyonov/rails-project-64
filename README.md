@@ -11,11 +11,12 @@ You may try my project via following link: https://rails-project-64-ndmx.onrende
 
 To start with your own collective blog, you need to do following steps:
 
-1. Clone the repository:
+1. Clone the repository and set up JavaScript depedencies and gems:
    ```bash
    git clone https://github.com/DimaArsyonov/rails-project-64.git
    cd rails-project-64
    bundle install
+   yarn install
    ```
 
 2. Set up the database:
