@@ -6,6 +6,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @post = posts(:one)
     @user = users(:one)
+    @post.likes.where(user: @user).destroy_all
     sign_in @user
   end
 
