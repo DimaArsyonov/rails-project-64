@@ -27,6 +27,7 @@ en:
   comment_failure: 'Failed to create comment.'
   post_success: 'Post was successfully created.'
   post_failure: 'Failed to create post.'
+  created_at: 'Created at'
   errors:
     messages:
       blank: "can't be blank"

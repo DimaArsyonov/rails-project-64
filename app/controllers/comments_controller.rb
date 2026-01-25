@@ -2,11 +2,6 @@
 
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  def new
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.build
-    @comment.parent_id = params[:parent_id]
-  end
 
   def create
     @post = Post.find(params[:post_id])

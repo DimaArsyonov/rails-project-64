@@ -1,52 +1,14 @@
-doctype html
-html lang="en"
-  head
-    meta charset="utf-8"
-    meta name="viewport" content="width=device-width, initial-scale=1"
-    = csrf_meta_tags
-    = csp_meta_tag
-  body.d-flex.flex-column.h-100
-    header
-      nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
-        .container-fluid
-          = link_to t(:blog), root_path, class: 'navbar-brand'
-          button.navbar-toggler
-            type = 'button'
-            data-bs-toggle = 'collapse'
-            data-bs-target = '#navbarCollapse'
-            aria-controls = 'navbarCollapse'
-            aria-expanded = 'false'
-            aria-label = 'Toggle navigation'
-            span.navbar-toggler-icon
-          #navbarCollapse.collapse.navbar-collapse
-            ul.navbar-nav.ms-auto.mb-2.mb-md-0
-              - if user_signed_in?
-                li.nav-item
-                  = link_to t(:profile), edit_user_registration_path, class: 'nav-link'
-                li.nav-item
-                  = link_to t(:new_post), new_post_path, class: 'nav-link'
-                li.nav-item
-                  = link_to t(:log_out), destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link'
-              - else
-                li.nav-item
-                  = link_to t(:log_in), new_user_session_path, class: 'nav-link'
-                li.nav-item
-                  = link_to t(:sign_up), new_user_registration_path, class: 'nav-link'
-    br
-    main.flex-shrink-0
-      .container.mt-5
-        h1.mb-4.text-center = t(:posts)
-        .row
-          - @posts.each do |post|
-            .col-md-12
-              .card.mb3
-                .card-body
-                  h5.card-title = post.title
-                  p.card-text.mb-2 = truncate(post.body, length: 100)
-                  p.card-subtitle.text-muted.mb-2
-                    | #{t(:category)}: #{t("categories.#{post.category.name.downcase}")} | #{t(:author)}: #{post.creator.email}
-                  = link_to t(:read_more), post_path(post), class: 'btn btn-primary'
-              br
-    footer.footer.mt-auto.py-3.bg-light
-      .container
-        span.text-muted © #{Time.current.year} #{t(:blog)}. #{t(:all_rights)}
+main.flex-shrink-0
+  .container.mt-5
+    h1.mb-4.text-center = t(:posts)
+    .row
+      - @posts.each do |post|
+        .col-md-12
+          .card.mb3
+            .card-body
+              h5.card-title = post.title
+              p.card-text.mb-2 = truncate(post.body, length: 100)
+              p.card-subtitle.text-muted.mb-2
+                | #{t(:category)}: #{t("categories.#{post.category.name.downcase}")} | #{t(:author)}: #{post.creator.email}
+              = link_to t(:read_more), post_path(post), class: 'btn btn-primary'
+        .mb-3

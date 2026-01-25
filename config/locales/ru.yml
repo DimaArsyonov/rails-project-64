@@ -27,6 +27,7 @@ ru:
   comment_failure: 'Не удалось создать комментарий.'
   post_success: 'Пост успешно создан.'
   post_failure: 'Не удалось создать пост.'
+  created_at: 'Создан'
   errors:
     messages:
       blank: 'не может быть пустым'

@@ -2,13 +2,11 @@
 
 module ApplicationHelper
   def map_alert_type(type)
-    case type.to_sym
-    when :notice, :success
-      'success'
-    when :alert, :error
-      'danger'
-    else
-      'secondary'
-    end
+    map = {
+      notice: 'info',
+      error: 'danger',
+      success: 'success'
+    }
+    map.fetch(type.to_sym, 'info')
   end
 end

@@ -1,26 +1,45 @@
 doctype html
-html
+html lang="en"
   head
-    title
-      = content_for(:title) || 'Rails Project 64'
-    meta[name="viewport" content="width=device-width,initial-scale=1"]
-    meta[name="apple-mobile-web-app-capable" content="yes"]
-    meta[name="mobile-web-app-capable" content="yes"]
-    = csrf_meta_tags
-    = csp_meta_tag
-    = yield :head
-    / Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!)
-    / = tag.link rel: "manifest", href: pwa_manifest_path(format: :json)
-    link[rel="icon" href="/icon.png" type="image/png"]
-    link[rel="icon" href="/icon.svg" type="image/svg+xml"]
-    link[rel="apple-touch-icon" href="/icon.png"]
-    / Includes all stylesheet files in app/assets/stylesheets
     = stylesheet_link_tag :app, 'data-turbo-track': 'reload'
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
     - if defined?(Sentry) && Sentry.respond_to?(:get_trace_propagation_meta)
       - trace_meta = Sentry.get_trace_propagation_meta
       - if trace_meta.present?
         trace_meta.html_safe # rubocop:disable Rails/OutputSafety
-  body
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+  body.d-flex.flex-column.h-100
+    header
+      nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
+        .container-fluid
+          = link_to t(:blog), root_path, class: 'navbar-brand'
+          button.navbar-toggler
+            type = 'button'
+            data-bs-toggle = 'collapse'
+            data-bs-target = '#navbarCollapse'
+            aria-controls = 'navbarCollapse'
+            aria-expanded = 'false'
+            aria-label = 'Toggle navigation'
+            span.navbar-toggler-icon
+          #navbarCollapse.collapse.navbar-collapse
+            ul.navbar-nav.ms-auto.mb-2.mb-md-0
+              - if user_signed_in?
+                li.nav-item
+                  = link_to t(:profile), edit_user_registration_path, class: 'nav-link'
+                li.nav-item
+                  = link_to t(:new_post), new_post_path, class: 'nav-link'
+                li.nav-item
+                  = link_to t(:log_out), destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link'
+              - else
+                li.nav-item
+                  = link_to t(:log_in), new_user_session_path, class: 'nav-link'
+                li.nav-item
+                  = link_to t(:sign_up), new_user_registration_path, class: 'nav-link'
     = render 'shared/flash'
     = yield
+    footer.footer.mt-auto.py-3.bg-light
+      .container
+        span.text-muted © #{Time.current.year} #{t(:blog)}. #{t(:all_rights)}
