@@ -3,5 +3,5 @@
 one:
   name: <%= Faker::Lorem.characters(number: 10) %>
 
-  two:
-    name: <%= Faker::Lorem.characters(number: 10) %>
+two:
+  name: <%= Faker::Lorem.characters(number: 10) %>
