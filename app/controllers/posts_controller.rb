@@ -19,11 +19,12 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
+    @categories = Category.all
     if @post.save
       redirect_to @post, flash: { success: t(:post_success) }
     else
       flash.now[:alert] = t(:post_failure)
-      render :new, status: :unprocessable_content
+      render :new, status: :unprocessable_entity
     end
   end
 

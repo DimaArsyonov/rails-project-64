@@ -49,6 +49,8 @@ ru:
         current_password: 'Текущий пароль'
         password_confirmation: 'Подтверждение пароля'
         password: 'Пароль'
+      post_comment:
+        content: 'Содержание комментария'
     errors:
       models:
         user:

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-Category.create(name: 'Technology')
-Category.create(name: 'Health')
-Category.create(name: 'Science')
-Category.create(name: 'Travel')
-Category.create(name: 'Education')
-Category.create(name: 'Food')
+Category.create(name: Faker::Lorem.unique.word(specifier: 5..50))
+Category.create(name: Faker::Lorem.unique.word(specifier: 5..50))
+Category.create(name: Faker::Lorem.unique.word(specifier: 5..50))
+Category.create(name: Faker::Lorem.unique.word(specifier: 5..50))
+Category.create(name: Faker::Lorem.unique.word(specifier: 5..50))
+Category.create(name: Faker::Lorem.unique.word(specifier: 5..50))

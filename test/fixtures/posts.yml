@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  body: asfsqwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMqazwsxedcrfvtgbyhnujmikolpPLMOKNIJBUHVYGCTFXRDZSEWAQAZWSXEDCRFVTGBYHNUJMIKOLPQWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzlkjhgfdsapoiuytrewqQAZXSWEDCVFRTGBNHYUJMKIOLP
+  title: <%= Faker::Lorem.sentence %>
+  body: <%= Faker::Lorem.paragraph_by_chars(number: 256) %>
   category: one
   creator: one
   likes_count: 0
 
 two:
-  title: MyString
-  body: asdassdqwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMqazwsxedcrfvtgbyhnujmikolpPLMOKNIJBUHVYGCTFXRDZSEWAQAZWSXEDCRFVTGBYHNUJMIKOLPQWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzlkjhgfdsapoiuytrewqQAZXSWEDCVFRTGBNHYUJMKIOLP
+  title: <%= Faker::Lorem.sentence %>
+  body: <%= Faker::Lorem.paragraph_by_chars(number: 256) %>
   category: two
   creator: two
   likes_count: 0
